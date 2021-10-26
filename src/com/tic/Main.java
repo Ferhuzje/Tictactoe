@@ -4,14 +4,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		int turn =  0;
 		int winner = -1;
 		int[] board = new int[9];
