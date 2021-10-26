@@ -18,11 +18,26 @@ public class Main {
 		for (int i = 0; i < board.length; i++) {
 			board[i] = -1;
 			}
+
+			Player a = new Player(0);
+			Player b = new Player(1);
+			Player[] players = new Player[2];
+			players[0] = a;
+			players[1] = b;
+
 		while(winner == -1) {
+			printBoard(board);
+			int turnField = players[turn].getTurn();
+			if(players[turn].validateTurn(board, turnField)) {
+				board[turnField] = players[turn].number;
+				turn = (turn + 1) % 2;
+			}
 			
 			winner = checkWinner(board);
 			}
-		printBoard(board);
+			System.out.println("Herzlichen Glückwunsche, Spieler " + winner + "- Du hast gewonnen!");
+	
+	
 	}
 	
 	public static int checkWinner(int[] board) {
@@ -37,6 +52,7 @@ public class Main {
 		return winner;
 	}
 
+	
 	public static void printBoard(int[] meinBoard) {
 		System.out.println("-------------");
 		System.out.println(meinBoard[0] + " | " + meinBoard[1] + " | " + meinBoard[2]);
